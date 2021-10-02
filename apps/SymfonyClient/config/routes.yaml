@@ -2,3 +2,8 @@ items_retrieve_one:
   path: /items/{id}
   controller: SymfonyClient\Controller\RetrieveOneItemController
   methods: [GET]
+
+items_create_one:
+  path: /items/
+  controller: SymfonyClient\Controller\CreateOneItemController
+  methods: [POST]

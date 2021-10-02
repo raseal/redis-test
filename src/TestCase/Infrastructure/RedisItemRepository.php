@@ -29,4 +29,12 @@ final class RedisItemRepository implements ItemRepository
             new ItemName($data)
         );
     }
+
+    public function persist(Item $item): void
+    {
+        $this->connection->set(
+            $item->id()->value(),
+            $item->name()->value()
+        );
+    }
 }
