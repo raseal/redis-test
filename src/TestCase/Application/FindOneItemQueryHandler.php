@@ -25,29 +25,6 @@ final class FindOneItemQueryHandler implements QueryHandler
             throw new ItemDoesNotExist($item_id);
         }
 
-        return new X(
-            [ItemResponse::fromItem($item),2,3,'4',5, ItemResponse::fromItem($item)],
-            17
-        );
-
         return ItemResponse::fromItem($item);
-    }
-}
-
-class X implements QueryResponse
-{
-    public function __construct(
-        private array $lines,
-        private int $age
-    ) {}
-
-    public function lines(): array
-    {
-        return $this->lines;
-    }
-
-    public function age(): int
-    {
-        return $this->age;
     }
 }
