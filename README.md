@@ -3,26 +3,17 @@ Run `make build` in order to install all application dependencies (you must have
 
 For more commands, type `make help`
 
-### Enabling `xDebug` in phpStorm
-1. Go to Preferences -> PHP and select PHP 8.0 version
+# Purpose
+Use Redis as temporary persistence layer via the `Predis` library.
 
-2. Click on `...` to create a CLI interpreter
-   ![step_1](docs/xdebug/step1.png)
-   
-3. Create the CLI interpreter by selecting the following parameters:
-- Type: Docker compose
-- Server: `Docker`
-- Configuration files: `./docker-compose.yml`
-- Service: `php_container`  
-  ![step_2](docs/xdebug/step2.png)
+This application use `Redis Insight` as a Redis client accessible via http://lcoalhost:8001
 
-4. Go to Preferences -> PHP -> Debug -> Servers to create a new one:
-- Name: `DockerApp`
-- Host: `localhost` (Port and Debugger should automagically be detected)
-- Make sure you check the `Use path mappings` options
-- Map the folders to the ones that belong to the Docker container
-    - **PROJECT_DIR**: should be mapped to `app`
-    - **src**: should be mapped to `app/src`
-      ![step_3](docs/xdebug/step3.png)
+# Usage
+This application exposes two endpoints ("search" and "create"):
+| Endpoint      | Verb | Descriptions                                                           |
+|---------------|------|------------------------------------------------------------------------|
+| items/{id}    | GET  | Find the item whose `id` matches with the requested identifier         |
+| items/        | POST | Create one item with the `id` and `name` specified in the request body |
 
-
+## Request examples
+Go to the `{PROJECT_FOLDER}/etc/endpoints/test_case_api.http` file to find some prepared requests.

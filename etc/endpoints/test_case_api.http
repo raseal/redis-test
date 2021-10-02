@@ -1,0 +1,24 @@
+
+###
+# Create the following item:
+#  - id: a97640da-afbf-4e6d-8f6c-ed1c8d1d33c8
+#  - name: {"title" : "Flying Sandhawk"}
+POST localhost:8000/items/
+Content-Type: multipart/form-data; boundary=---011000010111000001101001
+Host: localhost:8000
+Content-Length: 256
+
+-----011000010111000001101001
+Content-Disposition: form-data; name="id"
+
+a97640da-afbf-4e6d-8f6c-ed1c8d1d33c8
+-----011000010111000001101001
+Content-Disposition: form-data; name="name"
+
+{"title" : "Flying Sandhawk"}
+-----011000010111000001101001--
+
+###
+# Find one item
+GET localhost:8000/items/a97640da-afbf-4e6d-8f6c-ed1c8d1d33c8
+Content-Type: application/json
