@@ -39,6 +39,11 @@ services:
             tags:
                 - { name: messenger.message_handler, bus: query.bus }
 
+    Predis\Client:
+        arguments:
+            - scheme: '%env(REDIS_SCHEME)%'
+              host: '%env(REDIS_HOST)%'
+              port: '%env(REDIS_PORT)%'
 framework:
     messenger:
         default_bus: command.bus
